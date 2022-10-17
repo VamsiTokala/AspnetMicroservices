@@ -10,7 +10,7 @@ namespace Catalog.API.Data
     {
         public static void SeedData(IMongoCollection<Product> productCollection)
         {
-            bool existProduct = productCollection.Find(p => true).Any();//check any product collection exists continue, if nothing then seed database
+            bool existProduct = productCollection.Find(p => true).Any();//check any product collection exists continue, if nothing then seed database. find command comes from mongo cli
             if(!existProduct) //if no products exists
             {
                 productCollection.InsertManyAsync(GetPreconfiguredProducts()); //InsertManyAsync expects ienumarable product list
